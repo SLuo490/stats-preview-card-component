@@ -1,0 +1,16 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Root Variable */
+:root {
+  --p-very-dark-blue: hsl(233, 47%, 7%);
+  --p-dark-desaturated-blue: hsl(244, 38%, 16%);
+  --p-soft-violet: hsl(277, 64%, 61%);
+
+  --n-white: hsl(0, 0%, 100%);
+  --n-slightly-transparent-white: hsla(0, 0%, 100%, 0.75);
+  --n-slightly-transparent-white-2: hsla(0, 0%, 100%, 0.6);
+}
