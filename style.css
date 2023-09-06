@@ -14,3 +14,36 @@
   --n-slightly-transparent-white: hsla(0, 0%, 100%, 0.75);
   --n-slightly-transparent-white-2: hsla(0, 0%, 100%, 0.6);
 }
+
+/* Utilities */
+.fw-400-Inter {
+  font-weight: 400;
+  font-family: 'Inter', sans-serif;
+}
+
+.fw-700-Inter {
+  font-weight: 700;
+  font-family: 'Inter', sans-serif;
+}
+
+.fw-400-Lexend {
+  font-weight: 400;
+  font-family: 'Lexend Deca', sans-serif;
+}
+
+body {
+  background-color: var(--p-very-dark-blue);
+
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main {
+  background-color: var(--p-dark-desaturated-blue);
+}
+
+img {
+  width: 100%;
+}
