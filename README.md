@@ -1,20 +1,22 @@
 # Frontend Mentor - Stats preview card component solution
 
-This is a solution to the [Stats preview card component challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/stats-preview-card-component-8JqbgoU62). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
+This is a solution to the [Stats preview card component challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/stats-preview-card-component-8JqbgoU62). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
 ## Table of contents
 
-- [Overview](#overview)
-  - [The challenge](#the-challenge)
-  - [Screenshot](#screenshot)
-  - [Links](#links)
-- [My process](#my-process)
-  - [Built with](#built-with)
-  - [What I learned](#what-i-learned)
-  - [Continued development](#continued-development)
-  - [Useful resources](#useful-resources)
-- [Author](#author)
-- [Acknowledgments](#acknowledgments)
+- [Frontend Mentor - Stats preview card component solution](#frontend-mentor---stats-preview-card-component-solution)
+  - [Table of contents](#table-of-contents)
+  - [Overview](#overview)
+    - [The challenge](#the-challenge)
+    - [Links](#links)
+  - [Documentation](#documentation)
+    - [HTML](#html)
+    - [Styling](#styling)
+      - [Utilities](#utilities)
+      - [Mobile](#mobile)
+      - [Website](#website)
+    - [Built with](#built-with)
+  - [Author](#author)
 
 **Note: Delete this note and update the table of contents based on what sections you keep.**
 
@@ -26,85 +28,236 @@ Users should be able to:
 
 - View the optimal layout depending on their device's screen size
 
-### Screenshot
-
-![](./screenshot.jpg)
-
-Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
-
-Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to take the screenshot. FireShot has a free option, so you don't need to purchase it. 
-
-Then crop/optimize/edit your image however you like, add it to your project, and update the file path in the image above.
-
-**Note: Delete this note and the paragraphs above when you add your screenshot. If you prefer not to add a screenshot, feel free to remove this entire section.**
-
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [Solution URL](https://www.frontendmentor.io/solutions/stats-preview-card-component-GhBrS8qwFy)
+- Live Site URL: [Live](https://brilliant-granita-0d2ca7.netlify.app/)
 
-## My process
+## Documentation
+
+### HTML
+
+```html
+<body>
+  <main>
+    <section class="image">
+      <img src="./images/image-header-mobile.jpg" alt="" />
+    </section>
+    <section class="contents">
+      <h1 class="title fw-700-Inter">
+        Get <span class="text-color">insights</span> that help your business
+        grow.
+      </h1>
+      <h2 class="info fw-400-Inter">
+        Discover the benefits of data analytics and make better decisions
+        regarding revenue, customer experience, and overall efficiency.
+      </h2>
+
+      <div class="data">
+        <div class="companies">
+          <h3>10k+</h3>
+          <p>COMPANIES</p>
+        </div>
+        <div class="templates">
+          <h3>314</h3>
+          <p>TEMPLATES</p>
+        </div>
+        <div class="queries">
+          <h3>12m+</h3>
+          <p>QUERIES</p>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+```
+
+I sectioned my code into two sections contained in a `<main>` container. The sections include a `image` section and a `content` section. The `image` section contains the image whereas the `content` section contains the information. For the `data` I contained it in a `div` so that I can use `flex-box` to align the data easier.
+
+### Styling
+
+#### Utilities
+
+```css
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Root Variable */
+:root {
+  --p-very-dark-blue: hsl(233, 47%, 7%);
+  --p-dark-desaturated-blue: hsl(244, 38%, 16%);
+  --p-soft-violet: hsl(277, 64%, 61%);
+
+  --n-white: hsl(0, 0%, 100%);
+  --n-slightly-transparent-white: hsla(0, 0%, 100%, 0.75);
+  --n-slightly-transparent-white-2: hsla(0, 0%, 100%, 0.6);
+}
+
+/* Utilities */
+.fw-400-Inter {
+  font-weight: 400;
+  font-family: 'Inter', sans-serif;
+}
+
+.fw-700-Inter {
+  font-weight: 700;
+  font-family: 'Inter', sans-serif;
+}
+
+.fw-400-Lexend {
+  font-weight: 400;
+  font-family: 'Lexend Deca', sans-serif;
+}
+```
+
+Using the given styles in figma, I used `root variables` and created utility classes for the font weights. I added the primary, and secondary colors to the root variables, and the `font-weight` and `font-family` as utility classes.
+
+#### Mobile
+
+I started of with a mobile first approach where I designed the website for mobile screens first.
+
+```css
+body {
+  background-color: var(--p-very-dark-blue);
+
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 15px;
+  font-family: Inter, sans-serif;
+}
+
+/* Main */
+main {
+  background-color: var(--p-dark-desaturated-blue);
+  margin: 5.5rem 1.5rem;
+
+  border-radius: 0.5rem;
+}
+```
+
+I started off by centering the container, using `flex-box`, in the middle and adding the background color. I've also added font-size and font-family to the body. I have also changed the background color of the main container and added rounded corners to the container.
+
+```css
+img {
+  width: 100%;
+  height: 100%;
+
+  border-radius: 8px 8px 0px 0px;
+}
+
+.image {
+  position: relative;
+}
+
+.image:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0.7511;
+  background-color: #ab5cdb;
+  mix-blend-mode: multiply;
+}
+```
+
+Next, I styled the image by making sure the image is 100% in both `width` and `height`. Then I made the image's position `relative` to change color by adding `mix-blend-mode`.
+
+```css
+/* Contents */
+.title {
+  margin: 2rem 2rem 1rem 2rem;
+
+  color: var(--n-white);
+  font-size: 1.75rem;
+  text-align: center;
+  line-height: 2rem;
+}
+
+.text-color {
+  color: var(--p-soft-violet);
+}
+
+.info {
+  margin: 0 2rem 2.5rem 2rem;
+
+  color: var(--n-slightly-transparent-white);
+  text-align: center;
+  font-size: 0.94rem;
+  line-height: 1.56rem;
+}
+
+/* Data */
+
+.data {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.data > div > h3 {
+  color: #fff;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.data > div > p {
+  color: #fff;
+  text-align: center;
+  font-family: Lexend Deca, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1.56rem;
+  letter-spacing: 0.0625rem;
+  opacity: 0.6;
+  margin-bottom: 1.5rem;
+}
+
+.queries {
+  margin-bottom: 2rem;
+}
+```
+
+Next, I added styling to the content by targeting the heading, paragraph and the data. Following the figma, I added the `rem` to the `font-size`, `margins`, and more.
+
+#### Website
+
+```css
+@media screen and (min-width: 1100px) {
+  main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+
+    width: 69.38rem;
+    height: 27.88rem;
+  }
+}
+```
+
+I then used `media query` to design the website for desktop sizes. By changing the `flex-direction` to row, and changing the width and heights.
+
+I've then updated the styling for the contents, header, paragraph, and data following the figma design.
 
 ### Built with
 
 - Semantic HTML5 markup
 - CSS custom properties
 - Flexbox
-- CSS Grid
 - Mobile-first workflow
-- [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
-
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
-
-### What I learned
-
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
-
-To see how you can add code snippets, see below:
-
-```html
-<h1>Some HTML code I'm proud of</h1>
-```
-```css
-.proud-of-this-css {
-  color: papayawhip;
-}
-```
-```js
-const proudOfThisFunc = () => {
-  console.log('🎉')
-}
-```
-
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
-
-**Note: Delete this note and the content within this section and replace with your own learnings.**
-
-### Continued development
-
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
-
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
-
-### Useful resources
-
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
-
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
 
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
-
-**Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
-
-## Acknowledgments
-
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
-
-**Note: Delete this note and edit this section's content as necessary. If you completed this challenge by yourself, feel free to delete this section entirely.**
+- Frontend Mentor - [@SLuo490](https://www.frontendmentor.io/profile/SLuo490)
+- LinkedIn - [@SLuo490](https://www.linkedin.com/in/sluo490/)
+- Github - [@SLuo490](https://github.com/SLuo490)
